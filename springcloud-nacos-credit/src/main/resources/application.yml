@@ -1,0 +1,10 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: credit-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        cluster-name: BJ

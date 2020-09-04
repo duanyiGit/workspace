@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+    <dubbo:application name="young-app"/>
+   <!-- <dubbo:registry address="multicast://224.8.8.8:12345?unicast=false"/>-->
+    <dubbo:registry protocol="zookeeper" address="192.168.150.8:2181"/>
+    <dubbo:config-center timeout="20000"/>
+    <dubbo:protocol name="dubbo" port="-1"/>
+    <dubbo:service interface="com.dubbo.client.UserService" ref="userService" loadbalance="roundrobin">
+    </dubbo:service>
+    <bean id="userService" class="com.dubbo.UserServiceImpl"/>
+</beans>

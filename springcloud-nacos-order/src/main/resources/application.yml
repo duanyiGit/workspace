@@ -1,0 +1,9 @@
+server:
+  port: 9000
+spring:
+  cloud:
+    nacos:
+      discovery:
+        cluster-name: NJ
+        #使用ribbon时不要漏了服务地址
+        server-addr: localhost:8848
